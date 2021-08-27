@@ -41,6 +41,15 @@
       }                               \
      } while (0)
 
+#define mu_assert_error(...)          \
+    do {                              \
+      asserts_run++;                  \
+      fprintf(stderr, AT);            \
+      fprintf(stderr, __VA_ARGS__);   \
+      fprintf(stderr, "\n");          \
+      failures++;                     \
+    } while (0)
+
 #define mu_test(testname)                                     \
     void T_##testname(void) __attribute__((constructor));     \
     void _##testname(void);                                   \
