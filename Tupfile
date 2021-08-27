@@ -1,0 +1,4 @@
+include_rules
+
+: foreach *.c |> !cc |> %B.o
+: lib*.o minunit-main.o |> !test |> run_tests

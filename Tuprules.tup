@@ -1,0 +1,10 @@
+.gitignore
+
+FLAGS += -std=c11 -Werror -Wall -Wextra -O3 -Wpedantic -Wshadow -Wcast-qual -Wcast-align=strict -Wwrite-strings -Wdate-time -Wunused
+LIBS += -lm
+COMPILER = musl-gcc
+LINKER = ld
+
+!cc = |> $(COMPILER) $(CFLAGS) $(FLAGS) -c %f -o %o |> %B.o
+!lib = |> $(LINKER) --relocatable %f -o %o |> %B.a
+!test = |> $(COMPILER) %f $(FLAGS) $(LD_FLAGS) $(LIBS) -o %o |> 
