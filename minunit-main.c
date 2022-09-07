@@ -8,5 +8,6 @@ int main(int argc, char **argv) {
   printf("Asserts failed: %d\n", failures);
   printf("Tests run: %d\n", tests_run);
 
-  return failures == 0;
+  // Return non-zero if tests failed.
+  return failures > 0;
 }
